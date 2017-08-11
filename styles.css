@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+
+#button_container {
+  width: 500px;
+  margin: 50px auto 100px auto;
+}
+
+#head_container {
+  width: 500px;
+  margin: 100px auto 0 auto;
+  text-align: center;
+}
+
+#content {
+  width: 100%;
+  height: 5000px;
+}
+
+#brand_name {
+  font-size: 1.5em;
+  font-family: 'Indie Flower', cursive;
+}
+
+.content > span {
+  font-family: 'Indie Flower', cursive;
+}
+
+#main_page {
+  margin-top: 100px;
+}

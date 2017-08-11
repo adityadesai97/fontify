@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset = "UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Generator</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <div class="ui inverted labeled icon left inline vertical sidebar menu" style="">
+      <a class="item">
+        <i class="home icon"></i>
+        Home
+      </a>
+      <a class="item">
+        <i class="block layout icon"></i>
+        Fonts
+      </a>
+      <a class="item">
+        <i class="smile icon"></i>
+        About
+      </a>
+    </div>
+    <div class="pusher">
+      <div class="ui borderless fluid top fixed demo menu">
+        <a id="open_menu" class="item">
+          <i class="sidebar icon"></i>
+          Menu
+        </a>
+        <a class="item">
+          <!-- <i class="big red font icon"></i> -->
+          <span id="brand_name">fontify<span>
+        </a>
+      </div>
+      <div id="main_page" class="ui grid">
+        <div class="four wide column"></div>
+        <div class="eight wide column">
+          <div id="head_container">
+            <h2 class="ui icon header">
+              <i class="icons">
+                <i class="massive sun icon"></i>
+                <i class="massive red font icon"></i>
+              </i>
+              <div class="content">
+                <span>fontify</span>
+                <div class="sub header">A font generator that creates fonts from your own handwriting!</div>
+              </div>
+            </h2>
+          </div>
+          <div id="button_container">
+            <div id="upload_button" class="fluid ui green vertical animated button" tabindex="0">
+              <div class="hidden content">Upload</div>
+              <div class="visible content">
+                <i class="upload icon"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="four wide column"></div>
+      </div>
+      <div id="content"></div>
+    </div>
+  </body>
+</html>
