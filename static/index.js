@@ -1,16 +1,24 @@
 $('document').ready(() => {
 
+  $('.massive.circular.icon.write').transition('set looping').transition('jiggle');
+
   $('.ui.sidebar').sidebar('attach events', '#open_menu');
 
   $('#upload_button').click((e) => {
     console.log('Clicked');
   });
 
-  $('#head_container').mouseenter((e) => {
-    $('.sun.icon').addClass('loading')
+  $( window ).scroll(() => {
+    $('.massive.circular.icon.write').transition('remove looping');
+		$('.sun.icon').addClass('loading')
+    clearTimeout( $.data( this, "scrollCheck" ) );
+    $.data( this, "scrollCheck", setTimeout(function() {
+    	$('.sun.icon').removeClass('loading')
+    }, 100) );
   });
 
-  $('#head_container').mouseleave((e) => {
-    $('.sun.icon').removeClass('loading')
+  $('#get_started_button').click((e) => {
+    window.open('/step1', '_self');
   });
+
 });
