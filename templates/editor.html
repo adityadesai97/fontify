@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Generator</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+    <script src="../static/jquery-te-1.4.0.min.js"></script>
+    <script src="../static/index.js"></script>
+  </head>
+  <body>
+    <div class="ui grid">
+      <div class="sixteen wide column">
+        <div class="eight ui buttons">
+          <button class="ui toggle button" id="bold">
+            <i class="bold icon"></i>
+          </button>
+          <button class="ui button" id="italic">
+            <i class="italic icon"></i>
+          </button>
+          <button class="ui button" id="underline">
+            <i class="underline icon"></i>
+          </button>
+          <button class="ui button" id="copy">
+            <i class="copy icon"></i>
+          </button>
+          <button class="ui button" id="cut">
+            <i class="cut icon"></i>
+          </button>
+          <button class="ui button" id="paste">
+            <i class="paste icon"></i>
+          </button>
+          <button class="ui button" id="strikethrough">
+            <i class="strikethrough icon"></i>
+          </button>
+          <button class="ui labeled icon button">
+            <i class="font icon"></i>
+            Fontify
+          </button>
+        </div>
+        <div class="ui form">
+          <div class="field" contenteditable="true" id="print_div">
+            Type here...
+          </div>
+        </div>
+        <button class="ui labeled icon button" id="print">
+          <i class="font icon"></i>
+          Print
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

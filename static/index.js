@@ -21,4 +21,80 @@ $('document').ready(() => {
     window.open('/step1', '_self');
   });
 
+  $('#text_editor_link').click((e) => {
+    console.log("Works");
+    window.open('/editor', '_self');
+  });
+
+  // var textarea = $("#text_field");
+  // console.log(textarea);
+  // textarea.onselect = function() {
+  // var selection = getInputSelection(textarea);
+  // var selectedText = textarea.value.slice(selection.start, selection.end);
+  // console.log("Selected text: " + selectedText);
+  // };
+
+  // $('#bold').click( function() {
+  //   $("#text_field").addClass("bold");
+  // });
+
+  function ChangeText(elementID, openTag, closeTag) {
+      var textArea = $('#' + elementID);
+      var len = textArea.val().length;
+      var start = textArea[0].selectionStart;
+      var end = textArea[0].selectionEnd;
+      var selectedText = textArea.val().substring(start, end);
+      var replacement = openTag + selectedText + closeTag;
+      textArea.val(textArea.val().substring(0, start) + replacement + textArea.val().substring(end, len));
+  }
+
+  $('#bold').click(function() {
+      document.execCommand('bold');
+  });
+
+  $('#italic').click(function() {
+      document.execCommand('italic');
+  });
+
+  $('#underline').click(function() {
+      document.execCommand('underline');
+  });
+
+  $('#copy').click(function() {
+      document.execCommand('copy');
+  });
+
+  $('#cut').click(function() {
+      document.execCommand('cut');
+  });
+
+  $('#paste').click(function() {
+      document.execCommand('paste');
+  });
+
+  $('#strikethrough').click(function() {
+      document.execCommand('strikeThrough');
+  });
+
+  $('#print').click(function() {
+      printDiv();
+  });
+
+  function printDiv()
+{
+
+  var divToPrint=document.getElementById('print_div');
+
+  var newWin=window.open('','Print-Window');
+
+  newWin.document.open();
+
+  newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
+
+  newWin.document.close();
+
+  setTimeout(function(){newWin.close();},10);
+
+}
+
 });

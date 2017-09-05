@@ -41,3 +41,17 @@ a {
 #step1,  #step2, #step3, #step4{
   height: 400px;
 }
+
+.field{
+  border-style: solid;
+  border-width: 2px;
+  border-color: grey;
+  height: 400px;
+}
+
+#text_field.bold{
+  border-style: solid;
+  border-width: 2px;
+  border-color: grey;
+  font-weight: bold;
+}

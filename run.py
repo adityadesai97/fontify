@@ -9,5 +9,9 @@ def initialise():
 def index():
     return render_template('step1.html')
 
+@app.route('/edit')
+def index1():
+    return render_template('editor.html')
+
 if __name__=='__main__':
 	app.run(debug = True)
