@@ -97,4 +97,10 @@ $('document').ready(() => {
 
 }
 
+$("#down_button").click(function() {
+  console.log("Download was pressed");
+  $("#down_button").attr({target: '_blank',
+                    href  : 'chargrid.pdf'});
+});
+
 });
