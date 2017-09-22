@@ -30,15 +30,17 @@
         </div>
       </div>
     </div>
-    <!-- <form method="get" action="{{ url_for('static', filename='chargrid.pdf') }}"> -->
-      <button class="ui primary fluid button" id="down_button">
+    <div class="button_container" style="margin-top: 200px;">
+      <button class="ui primary button" id="down_button">
         <i class="download icon"></i>
         Download
       </button>
-    <!-- </form> -->
-    <button class="ui disabled button" id="next_btn">
-      <i class="checkmark icon"></i>
-      Next
-    </button>
+      <button id="helper_button" class="circular basic ui icon button">
+        <i class="question icon"></i>
+      </button>
+    </div>
+    <div id="helper_text" class="button_container" style="opacity: 0;">
+      <p>Download the template and fill the up the spaces with the symbols and letters indicated next to the space.</p>
+    </div>
   </body>
 </html>

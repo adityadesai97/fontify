@@ -1,5 +1,7 @@
+from __future__ import print_function
 import cv2
 import os
+import sys
 
 from app import app
 from flask import render_template, redirect, flash, request, send_from_directory, session, abort
@@ -11,10 +13,13 @@ from tabledef import *
 
 @app.route('/')
 def home():
+    if 'logged_in' not in session:
+        session['logged_in'] = False
     return render_template('index.html')
 
 @app.route('/image', methods=['GET', 'POST'])
 def submit_image():
+    print(request.method, file=sys.stdout)
     if request.method == 'POST':
 
         if 'file' not in request.files:
@@ -41,7 +46,10 @@ def submit_image():
 
 @app.route('/step1')
 def index():
-    return render_template('step1.html')
+    if session['logged_in']:
+        return render_template('step1.html')
+    else:
+        return redirect("/login")
 
 @app.route('/step2')
 def index1():
@@ -76,7 +84,7 @@ def do_admin_login():
         session['logged_in'] = True
     else:
         flash('wrong password!')
-    return home()
+    return redirect('/')
 
 @app.route('/check1', methods=['POST'])
 def do_admin_signup():
@@ -93,7 +101,8 @@ def do_admin_signup():
 @app.route("/logout")
 def logout():
     session['logged_in'] = False
-    return home()
+    return redirect('/')
+
 @app.route('/font', methods=['GET'])
 def get_font():
     dirpath = os.path.join(app.root_path, 'users')

@@ -11,6 +11,9 @@
     <script src="../static/index.js"></script>
   </head>
   <body>
+    <div id="scroll_to_top_button">
+      <i class="inverted big up arrow icon"></i>
+    </div>
     <div class="ui inverted labeled icon left inline vertical sidebar menu" style="">
       <a class="item">
         <i class="home icon"></i>
@@ -36,6 +39,28 @@
             <i class="big sun icon"></i>
             <span id="brand_name">fontify<span>
          </div>
+         <div class="right menu">
+            {% block body %}
+            {% if session['logged_in'] %}
+            <div class="item">
+             <button id="logout_button" class="ui basic button" id="login">
+               Logout
+             </button>
+            </div>
+            {% else %}
+            <div class="item">
+             <button class="ui basic button" id="login">
+               Login
+             </button>
+            </div>
+            <div class="item">
+             <button class="ui basic button" id="signup">
+               Sign-Up
+             </button>
+            </div>
+            {% endif %}
+            {% endblock %}
+         </div>
         </div>
         <div id="main_page" class="ui vertically divided grid">
           <div id="step0" class="row">
@@ -53,35 +78,26 @@
                 </h1>
               </div>
               <div class="button_container">
-
                 <div class="large ui two buttons">
-                  <div id="upload_button" class="fluid ui green vertical animated button" tabindex="0">
-                    <div class="hidden content">Upload your template</div>
+                  <div id="get_started_button" class="fluid ui green vertical animated button" tabindex="0">
+                    <div class="hidden content">
+                      <i class="right arrow icon"></i>
+                    </div>
                     <div class="visible content">
-                      <i class="upload icon"></i>
+                      Get started
                     </div>
                   </div>
                   <div class="or"></div>
-                  <div id="upload_button" class="fluid ui blue animated button" tabindex="0">
-                    <div class="hidden content">Download existing fonts</div>
+                  <div id="view_button" class="fluid ui blue animated button" tabindex="0">
+                    <div class="hidden content">
+                      <i class="info icon"></i>
+                    </div>
                     <div class="visible content">
-                      <i class="download icon"></i>
+                      View the instructions
                     </div>
                   </div>
                 </div>
               </div>
-              {% block body %}
-              {% if session['logged_in'] %}
-              <p>You're logged in already!</p><a href='/logout'>Logout</a>
-              {% else %}
-              <button class="ui primary fluid button" id="login">
-                Login
-              </button>
-              <button class="ui primary fluid button" id="signup">
-                Sign-Up
-              </button>
-              {% endif %}
-              {% endblock %}
             </div>
             <div class="four wide column"></div>
           </div>
@@ -150,14 +166,18 @@
                   </div>
                 </h2>
               </div>
-              <div class="button_container">
-                <div id="get_started_button" class="large fluid ui green animated fade button" tabindex="0">
-                  <div class="visible content">Get Started!</div>
-                  <div class="hidden content">
-                    <i class="arrow right icon"></i>
-                  </div>
+            </div>
+            <div class="four wide column"></div>
+          </div>
+          <div id="index_footer" class="row">
+            <div class="four wide column"></div>
+            <div class="eight wide column">
+              <h5 class="ui icon center aligned header">
+                <i class="copyright icon"></i>
+                <div class="content">
+                  fontify 2017
                 </div>
-              </div>
+              </h5>
             </div>
             <div class="four wide column"></div>
           </div>

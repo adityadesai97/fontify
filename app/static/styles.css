@@ -3,6 +3,7 @@
 .button_container {
   width: 500px;
   margin: 50px auto 100px auto;
+  text-align: center;
 }
 
 .steps {
@@ -23,6 +24,7 @@
 #brand_name {
   font-size: 1.5em;
   font-family: 'Indie Flower', cursive;
+  cursor: pointer;
 }
 
 .content > span {
@@ -42,6 +44,10 @@ a {
   height: 400px;
 }
 
+#index_footer {
+  height: 100px;
+}
+
 .field{
   border-style: solid;
   border-width: 2px;
@@ -54,4 +60,46 @@ a {
   border-width: 2px;
   border-color: grey;
   font-weight: bold;
+}
+
+#scroll_to_top_button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#down_button {
+  width: 75%;
+}
+
+#helper_text {
+  transition: opacity 1s;
+}
+
+#default_button {
+  display: none;
+}
+
+#overlay_button {
+  width: 120px;
+  height: 36px;
+  border-radius: 5px;
+  background: #e0e1e2 none;
+  line-height: 2.5rem;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 1rem;
+  transition: background-color .1s ease,color .1s ease;
+}
+
+#overlay_button:hover {
+  background-color: #D3D3D3;
+  color: rgba(0, 0, 0, 1);
 }

@@ -8,6 +8,28 @@ $('document').ready(() => {
     console.log('Clicked');
   });
 
+  $('#brand_name').click((e) => {
+    window.open('/', '_self')
+  });
+
+  $('#view_button').click((e) => {
+    $('html, body').animate({
+      scrollTop: $("#step1").offset().top - 200
+    }, 1000);
+  });
+
+  $('#scroll_to_top_button').click((e) => {
+    $('html, body').animate({
+      scrollTop: 0
+    }, 1000);
+    $('').addClass('animating transition jiggle');
+    $('#get_started_button')
+    .transition({
+      animation  : 'jiggle',
+      duration   : '1s'
+    });
+  });
+
   $( window ).scroll(() => {
     $('.massive.circular.icon.write').transition('remove looping');
 		$('.sun.icon').addClass('loading')
@@ -26,6 +48,10 @@ $('document').ready(() => {
     window.open('/editor', '_self');
   });
 
+  $('#logout_button').click((e) => {
+    window.open('/logout', '_self');
+  });
+
   // var textarea = $("#text_field");
   // console.log(textarea);
   // textarea.onselect = function() {
@@ -39,13 +65,13 @@ $('document').ready(() => {
   // });
 
   function ChangeText(elementID, openTag, closeTag) {
-      var textArea = $('#' + elementID);
-      var len = textArea.val().length;
-      var start = textArea[0].selectionStart;
-      var end = textArea[0].selectionEnd;
-      var selectedText = textArea.val().substring(start, end);
-      var replacement = openTag + selectedText + closeTag;
-      textArea.val(textArea.val().substring(0, start) + replacement + textArea.val().substring(end, len));
+    var textArea = $('#' + elementID);
+    var len = textArea.val().length;
+    var start = textArea[0].selectionStart;
+    var end = textArea[0].selectionEnd;
+    var selectedText = textArea.val().substring(start, end);
+    var replacement = openTag + selectedText + closeTag;
+    textArea.val(textArea.val().substring(0, start) + replacement + textArea.val().substring(end, len));
   }
 
   $('#bold').click(function() {
@@ -80,39 +106,39 @@ $('document').ready(() => {
       printDiv();
   });
 
-  function printDiv()
-{
+  function printDiv(){
+    var divToPrint=document.getElementById('print_div');
+    var newWin=window.open('','Print-Window');
+    newWin.document.open();
+    newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
+    newWin.document.close();
+    setTimeout(function(){newWin.close();},10);
+  }
 
-  var divToPrint=document.getElementById('print_div');
+  $("#down_button").click(function() {
+    window.open("/static/chargrid.pdf");
+    window.open('/step2', '_self');
+    $("#next_btn").attr('class', 'ui green button');
+  });
 
-  var newWin=window.open('','Print-Window');
+  $("#login").click(function() {
+    window.open('/login', '_self');
+  });
 
-  newWin.document.open();
+  $("#signup").click(function() {
+    window.open('/signup', '_self');
+  });
 
-  newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
+  $('#helper_button').mouseenter((e) => {
+    $('#helper_text').css('opacity', '1');
+  });
 
-  newWin.document.close();
+  $('#helper_button').mouseleave((e) => {
+    $('#helper_text').css('opacity', '0');
+  });
 
-  setTimeout(function(){newWin.close();},10);
-
-}
-
-$("#down_button").click(function() {
-  // window.open("http://scruss.com/wordpress/wp-content/uploads/2010/05/chargrid.pdf", "_blank");
-  window.open("/static/chargrid.pdf");
-  $("#next_btn").attr('class', 'ui button');
-});
-
-$("#next_btn").click(function() {
-  window.open('/step2', '_self');
-});
-
-$("#login").click(function() {
-  window.open('/login', '_self');
-});
-
-$("#signup").click(function() {
-  window.open('/signup', '_self');
-});
+  // $('#overlay_buttton').bind("click", () => {
+  //   $('#default_button').click();
+  // });
 
 });
