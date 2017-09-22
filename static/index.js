@@ -98,9 +98,20 @@ $('document').ready(() => {
 }
 
 $("#down_button").click(function() {
-  console.log("Download was pressed");
-  $("#down_button").attr({target: '_blank',
-                    href  : 'chargrid.pdf'});
+  window.open("http://scruss.com/wordpress/wp-content/uploads/2010/05/chargrid.pdf", "_blank");
+  $("#next_btn").attr('class', 'ui button');
+});
+
+$("#next_btn").click(function() {
+  window.open('/step2', '_self');
+});
+
+$("#login").click(function() {
+  window.open('/login', '_self');
+});
+
+$("#signup").click(function() {
+  window.open('/signup', '_self');
 });
 
 });

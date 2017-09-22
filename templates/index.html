@@ -70,6 +70,18 @@
                   </div>
                 </div>
               </div>
+              {% block body %}
+              {% if session['logged_in'] %}
+              <p>You're logged in already!</p><a href='/logout'>Logout</a>
+              {% else %}
+              <button class="ui primary fluid button" id="login">
+                Login
+              </button>
+              <button class="ui primary fluid button" id="signup">
+                Sign-Up
+              </button>
+              {% endif %}
+              {% endblock %}
             </div>
             <div class="four wide column"></div>
           </div>
