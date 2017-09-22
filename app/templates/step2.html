@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Generator</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+    <script src="../static/index.js"></script>
+  </head>
+  <body>
+    <div class="ui three steps">
+      <div class="completed step">
+        <i class="download icon"></i>
+        <div class="content">
+          <div class="title">Download the template</div>
+        </div>
+      </div>
+      <div class="active step">
+        <i class="write icon"></i>
+        <div class="content">
+          <div class="title">Upload your handwriting</div>
+        </div>
+      </div>
+      <div class="disabled step">
+        <i class="sort alphabet ascending icon"></i>
+        <div class="content">
+          <div class="title">Download your font</div>
+        </div>
+      </div>
+    </div>
+    <form method=post enctype=multipart/form-data>
+      <input type=file name=file>
+      <input type=submit value=Upload>
+    </form
+    <button class="ui primary fluid button" id="down_button">
+      <i class="upload icon"></i>
+      Upload
+    </button>
+    <button class="ui disabled button" id="next1thon_btn">
+      <i class="checkmark icon"></i>
+      Next
+    </button>
+  </body>
+</html>
