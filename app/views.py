@@ -4,11 +4,13 @@ import os
 from app import app
 from flask import render_template, redirect, flash, request, send_from_directory, session, abort
 from werkzeug.utils import secure_filename
+from sqlalchemy.orm import sessionmaker
 
 from fontify import image_process as imp
+from tabledef import *
 
 @app.route('/')
-def index():
+def home():
     return render_template('index.html')
 
 @app.route('/image', methods=['GET', 'POST'])
@@ -35,9 +37,7 @@ def submit_image():
             imp.split(img, dirpath)
             imp.font_generate('user.ttf', dirpath)
 
-            return render_template('download_page.html')
-
-    return render_template('upload_page.html')
+            return redirect('step3')
 
 @app.route('/step1')
 def index():
@@ -46,6 +46,10 @@ def index():
 @app.route('/step2')
 def index1():
     return render_template('step2.html')
+
+@app.route('/step3')
+def index5():
+    return render_template('step3.html')
 
 @app.route('/edit')
 def index2():
@@ -72,7 +76,7 @@ def do_admin_login():
         session['logged_in'] = True
     else:
         flash('wrong password!')
-    return initialise()
+    return home()
 
 @app.route('/check1', methods=['POST'])
 def do_admin_signup():
@@ -84,13 +88,12 @@ def do_admin_signup():
     user = User(POST_USERNAME,POST_PASSWORD)
     session.add(user)
     session.commit()
-    return do_admin_login()
+    return redirect('/login')
 
 @app.route("/logout")
 def logout():
     session['logged_in'] = False
-    return initialise()
-
+    return home()
 @app.route('/font', methods=['GET'])
 def get_font():
     dirpath = os.path.join(app.root_path, 'users')

@@ -98,7 +98,8 @@ $('document').ready(() => {
 }
 
 $("#down_button").click(function() {
-  window.open("http://scruss.com/wordpress/wp-content/uploads/2010/05/chargrid.pdf", "_blank");
+  // window.open("http://scruss.com/wordpress/wp-content/uploads/2010/05/chargrid.pdf", "_blank");
+  window.open("/static/chargrid.pdf");
   $("#next_btn").attr('class', 'ui button');
 });
 
