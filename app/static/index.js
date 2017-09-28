@@ -1,5 +1,45 @@
 $('document').ready(() => {
 
+  let nextJump = 439;
+
+  $(window).scroll(function(e) {
+    $('.massive.circular.icon.write').transition('remove looping');
+		$('.sun.icon').addClass('loading')
+    clearTimeout( $.data( this, "scrollCheck" ) );
+    $.data( this, "scrollCheck", setTimeout(function() {
+    	$('.sun.icon').removeClass('loading')
+    }, 100) );
+    var scrollTop = $(window).scrollTop();
+    console.log(scrollTop);
+    if(scrollTop == 0) {
+    }
+    else{
+      if(scrollTop < 439) {
+        nextJump = 439;
+      }
+      else if(scrollTop < 821) {
+        nextJump = 821;
+      }
+      else if(scrollTop < 1223) {
+        nextJump = 1223;
+      }
+      else if(scrollTop < 1815) {
+        nextJump = 1815;
+      }
+    }
+  });
+
+  $('#tp_button').click((e) => {
+    if($('#scroll_to_top_button').css('opacity') == 0) {
+      $('#scroll_to_top_button').css('opacity', '1')
+      $('#next_instruction_button').css('opacity', '1')
+    }
+    else {
+      $('#scroll_to_top_button').css('opacity', '0')
+      $('#next_instruction_button').css('opacity', '0')
+    }
+  });
+
   $('.massive.circular.icon.write').transition('set looping').transition('jiggle');
 
   $('.ui.sidebar').sidebar('attach events', '#open_menu');
@@ -37,21 +77,13 @@ $('document').ready(() => {
     $('html, body').animate({
       scrollTop: 0
     }, 1000);
-    $('').addClass('animating transition jiggle');
-    $('#get_started_button')
-    .transition({
-      animation  : 'jiggle',
-      duration   : '1s'
-    });
   });
 
-  $( window ).scroll(() => {
-    $('.massive.circular.icon.write').transition('remove looping');
-		$('.sun.icon').addClass('loading')
-    clearTimeout( $.data( this, "scrollCheck" ) );
-    $.data( this, "scrollCheck", setTimeout(function() {
-    	$('.sun.icon').removeClass('loading')
-    }, 100) );
+  $('#next_instruction_button').click((e) => {
+    var scrollTop = $(window).scrollTop();
+    $('html, body').animate({
+      scrollTop: nextJump
+    }, 1000);
   });
 
   $('#get_started_button').click((e) => {
@@ -175,23 +207,15 @@ $('document').ready(() => {
     })
   }
 
-  function printDiv(username){
+  function printDiv(username) {
     var printText=document.getElementById('print_div').innerHTML;
     var newWin=window.open('','Print-Window');
-    // newWin.document.open();
     newWin.document.write('<html><head><title>Cool</title>');
-    newWin.document.write(`<style>@font-face {font-family: 'neil';src: URL('${username}.ttf');}</style>`)
+    // newWin.document.write(`<style>@font-face {font-family: 'userfont';src: URL('/font');}</style>`)
     newWin.document.write('<link rel="stylesheet" href="../static/styles.css" type="text/css" />');
     newWin.document.write(`</head><body><div class="font">${printText}</div></body></html>`);
-    newWin.document.write('<script>setTimeout(function(){window.print();},5000)</script>');
-    // newWin.document.write();
-    // newWin.document.write('');
+    newWin.document.write('<script>setTimeout(function(){window.print();},1000)</script>');
     newWin.document.close();
-    // newWin.focus();
-    // setTimeout(function(){
-    //   window.print();
-    // },5000);
-    // newWin.close();
   }
 
   $("#down_button").click(function() {
@@ -215,9 +239,5 @@ $('document').ready(() => {
   $('#helper_button').mouseleave((e) => {
     $('#helper_text').css('opacity', '0');
   });
-
-  // $('#overlay_buttton').bind("click", () => {
-  //   $('#default_button').click();
-  // });
 
 });

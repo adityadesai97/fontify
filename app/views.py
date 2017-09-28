@@ -109,11 +109,10 @@ def logout():
 @app.route('/font', methods=['GET'])
 def get_font():
     dirpath = os.path.join(app.root_path, 'users')
-    # filename = '{0}.ttf'.format(POST_USERNAME)
-    filename = 'blah.ttf'
+    filename = '{0}.ttf'.format(POST_USERNAME)
     return send_from_directory(directory=dirpath, filename=filename)
 
 
 @app.route('/getusername', methods=['GET'])
 def getUsername():
-    return 'blah'
+    return POST_USERNAME

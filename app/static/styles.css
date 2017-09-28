@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 
 @font-face {
-  font-family: 'neil';
-  src: URL('test_font.ttf');
+  font-family: 'userfont';
+  src: URL('/font');
+}
+
+body {
+  color: white !important;
 }
 
 .button_container {
@@ -40,13 +44,38 @@ a {
   cursor: pointer;
 }
 
+.ui.icon.header, .sub.header {
+  color: white !important;
+}
+
 #step0 {
   height: 600px;
   padding-top: 100px;
+  background: hsl(184,65%,49%);
 }
 
-#step1,  #step2, #step3, #step4{
+#step1 {
+  background: hsl(350,92%,59%);
+}
+
+#step2 {
+  background: hsl(158,58%,52%);
+}
+
+#step3 {
+  background: hsl(28,100%,52%);
+}
+
+#step4 {
+  background: hsl(200,60%,55%);
+}
+
+#step1,  #step2, #step3 {
   height: 400px;
+}
+
+#step4 {
+  height: 600px;
 }
 
 #index_footer {
@@ -61,7 +90,7 @@ a {
 }
 
 .font{
-  font-family: "neil";
+  font-family: "userfont";
 }
 
 #text_field.bold{
@@ -71,18 +100,46 @@ a {
   font-weight: bold;
 }
 
-#scroll_to_top_button {
+#control_buttons {
   position: fixed;
-  bottom: 30px;
+  bottom: 45%;
   right: 30px;
+  z-index: 100;
+}
+
+#scroll_to_top_button {
   height: 50px;
   width: 50px;
   border-radius: 5px;
   background: rgba(0, 0, 0, 0.35);
-  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: opacity 1s;
+  margin-bottom: 5px;
+}
+
+#next_instruction_button {
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1s;
+}
+
+#tp_button {
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+  /*background: rgba(0, 0, 0, 0.35);*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1s;
+  margin-bottom: 5px;
 }
 
 #down_button {
@@ -111,4 +168,8 @@ a {
 #overlay_button:hover {
   background-color: #D3D3D3;
   color: rgba(0, 0, 0, 1);
+}
+
+#menu_link {
+  font-size: 15px;
 }
