@@ -186,6 +186,10 @@ $('document').ready(() => {
     window.open('/about', '_self');
   });
 
+  $("#journey").click(function() {
+    window.open('/journey', '_self');
+  });
+
   $('#helper_button').mouseenter((e) => {
     console.log("blah");
     $('#helper_text').css('opacity', '1');

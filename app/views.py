@@ -77,6 +77,10 @@ def index4():
 def aboutus():
     return render_template('about.html')
 
+@app.route('/journey')
+def ourjourney():
+    return render_template('journey.html')
+
 @app.route('/check', methods=['POST'])
 def do_admin_login():
     global POST_USERNAME
