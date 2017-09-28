@@ -5,9 +5,9 @@
   src: URL('/font');
 }
 
-body {
+/*body {
   color: white !important;
-}
+}*/
 
 .button_container {
   width: 500px;
@@ -55,7 +55,7 @@ a {
 }
 
 #step1 {
-  background: hsl(350,92%,59%);
+  background: #9b59b6;
 }
 
 #step2 {

@@ -61,6 +61,7 @@ $('document').ready(() => {
   $("input:file").change(function (){
        var fileName = $(this).val();
        console.log(fileName);
+       $('#filename_para').text(fileName.split('\\')[3])
   });
 
   $('#down_button2').click((e) => {
@@ -99,18 +100,6 @@ $('document').ready(() => {
     window.open('/logout', '_self');
   });
 
-  // var textarea = $("#text_field");
-  // console.log(textarea);
-  // textarea.onselect = function() {
-  // var selection = getInputSelection(textarea);
-  // var selectedText = textarea.value.slice(selection.start, selection.end);
-  // console.log("Selected text: " + selectedText);
-  // };
-
-  // $('#bold').click( function() {
-  //   $("#text_field").addClass("bold");
-  // });
-
   function ChangeText(elementID, openTag, closeTag) {
     var textArea = $('#' + elementID);
     var len = textArea.val().length;
@@ -120,10 +109,6 @@ $('document').ready(() => {
     var replacement = openTag + selectedText + closeTag;
     textArea.val(textArea.val().substring(0, start) + replacement + textArea.val().substring(end, len));
   }
-
-  $('template_link2').click((e) => {
-
-  })
 
   $('#bold').click(function() {
       document.execCommand('bold');
@@ -155,47 +140,12 @@ $('document').ready(() => {
 
   $('#print').click(function() {
       getUsername();
-      //printDiv();
-      // var contents = $("#printDiv").html();
-      //   var frame1 = $('<iframe />');
-      //   frame1[0].name = "frame1";
-      //   frame1.css({ "position": "absolute", "top": "-1000000px" });
-      //   $("body").append(frame1);
-      //   var frameDoc = frame1[0].contentWindow ? frame1[0].contentWindow : frame1[0].contentDocument.document ? frame1[0].contentDocument.document : frame1[0].contentDocument;
-      //   frameDoc.document.open();
-      //   //Create a new HTML document.
-      //   frameDoc.document.write('<html><head><title>DIV Contents</title>');
-      //   frameDoc.document.write('</head><body>');
-      //   //Append the external CSS file.
-      //   frameDoc.document.write('<link href="../static/styles.css" rel="stylesheet" type="text/css" />');
-      //   //Append the DIV contents.
-      //   frameDoc.document.write(contents);
-      //   frameDoc.document.write('</body></html>');
-      //   frameDoc.document.close();
-      //   setTimeout(function () {
-      //       window.frames["frame1"].focus();
-      //       window.frames["frame1"].print();
-      //       frame1.remove();
-      //   }, 500);
   });
 
   $('#fontify').click(function() {
       $("#print_div").attr('class', 'field font');
   });
 
-  // var doc = new jsPDF();
-  // var specialElementHandlers = {
-  //     '#editor': function (element, renderer) {
-  //         return true;
-  //     }
-  // };
-  // $('#print').click(function () {
-  //     doc.fromHTML($('#print_div').html(), 15, 15, {
-  //         'width': 170,
-  //             'elementHandlers': specialElementHandlers
-  //     });
-  //     doc.save('sample-file.pdf');
-  // });
   function getUsername(){
     $.ajax({
       type:"GET",
@@ -233,6 +183,7 @@ $('document').ready(() => {
   });
 
   $('#helper_button').mouseenter((e) => {
+    console.log("blah");
     $('#helper_text').css('opacity', '1');
   });
 
