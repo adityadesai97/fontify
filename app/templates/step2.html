@@ -31,14 +31,16 @@
       </div>
     </div>
     <div class="button_container" style="margin-top: 200px;">
-      <form method="post" enctype="multipart/form-data" action="/image">
-      <p><input type=file name=file>
-         <input type=submit value=Upload>
+      <form class="ui form" method="post" enctype="multipart/form-data" action="/image">
+        <div class="field" style="height: 40px; width: 124px; border-radius: 5px; margin: auto; border: none;">
+          <label id="overlay_button">
+            <i class="upload icon"></i>
+            Choose file
+            <input id="default_button" type='file' name='file'>
+          </label>
+        </div>
+        <button style="margin-top: 20px;" class="ui button" type="submit">Upload</button>
       </form>
-      <button class="ui disabled button" id="next1thon_btn">
-        <i class="checkmark icon"></i>
-        Next
-      </button>
     </div>
   </body>
 </html>

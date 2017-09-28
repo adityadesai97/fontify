@@ -18,6 +18,21 @@ $('document').ready(() => {
     }, 1000);
   });
 
+  $("input:file").change(function (){
+       var fileName = $(this).val();
+       console.log(fileName);
+  });
+
+  $('#down_button2').click((e) => {
+    $.ajax({
+      type: "GET",
+      url: "/font",
+      success: (data) => {
+        console.log(data);
+      }
+    });
+  });
+
   $('#scroll_to_top_button').click((e) => {
     $('html, body').animate({
       scrollTop: 0
@@ -73,6 +88,10 @@ $('document').ready(() => {
     var replacement = openTag + selectedText + closeTag;
     textArea.val(textArea.val().substring(0, start) + replacement + textArea.val().substring(end, len));
   }
+
+  $('template_link2').click((e) => {
+
+  })
 
   $('#bold').click(function() {
       document.execCommand('bold');
