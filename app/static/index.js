@@ -182,6 +182,10 @@ $('document').ready(() => {
     window.open('/signup', '_self');
   });
 
+  $("#aboutus").click(function() {
+    window.open('/about', '_self');
+  });
+
   $('#helper_button').mouseenter((e) => {
     console.log("blah");
     $('#helper_text').css('opacity', '1');

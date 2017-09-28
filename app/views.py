@@ -73,6 +73,10 @@ def index3():
 def index4():
     return render_template('signup.html')
 
+@app.route('/about')
+def aboutus():
+    return render_template('about.html')
+
 @app.route('/check', methods=['POST'])
 def do_admin_login():
     global POST_USERNAME
