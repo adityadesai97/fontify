@@ -44,6 +44,8 @@ def submit_image():
 
             return redirect('step3')
 
+    return render_template('step2.html')
+
 @app.route('/step1')
 def index():
     if session['logged_in']:
