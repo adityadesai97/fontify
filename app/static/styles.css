@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 
+@font-face {
+  font-family: 'neil';
+  src: URL('test_font.ttf');
+}
+
 .button_container {
   width: 500px;
   margin: 50px auto 100px auto;
@@ -53,6 +58,10 @@ a {
   border-width: 2px;
   border-color: grey;
   height: 400px;
+}
+
+.font{
+  font-family: "neil";
 }
 
 #text_field.bold{

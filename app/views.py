@@ -75,6 +75,7 @@ def index4():
 
 @app.route('/check', methods=['POST'])
 def do_admin_login():
+    global POST_USERNAME
     POST_USERNAME = str(request.form['username'])
     POST_PASSWORD = str(request.form['password'])
 
@@ -108,6 +109,11 @@ def logout():
 @app.route('/font', methods=['GET'])
 def get_font():
     dirpath = os.path.join(app.root_path, 'users')
-    filename = 'user.ttf'
-
+    # filename = '{0}.ttf'.format(POST_USERNAME)
+    filename = 'blah.ttf'
     return send_from_directory(directory=dirpath, filename=filename)
+
+
+@app.route('/getusername', methods=['GET'])
+def getUsername():
+    return 'blah'
