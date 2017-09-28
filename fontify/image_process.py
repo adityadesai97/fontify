@@ -47,6 +47,8 @@ def split(image, save_dir):
 
 def font_generate(filename, dirpath):
     font = ff.font()
+    font.fontname = "User"
+    font.familyname = "UserFont1"
 
     for i in xrange(96):
         image_name = str(i + 32) + '.png'
@@ -57,6 +59,9 @@ def font_generate(filename, dirpath):
         glyph.importOutlines(image_path)
         font.selection.select(chr(i + 32))
         font.autoTrace()
+        if i != 0:
+            font.autoWidth(10)
+        # font.autoKern()
 
     filepath = os.path.join(dirpath, filename)
     font.generate(filepath)
