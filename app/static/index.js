@@ -122,7 +122,8 @@ $('document').ready(() => {
   });
 
   $('#print').click(function() {
-      printDiv();
+      getUsername();
+      //printDiv();
       // var contents = $("#printDiv").html();
       //   var frame1 = $('<iframe />');
       //   frame1[0].name = "frame1";
@@ -150,12 +151,12 @@ $('document').ready(() => {
       $("#print_div").attr('class', 'field font');
   });
 
-  var doc = new jsPDF();
-  var specialElementHandlers = {
-      '#editor': function (element, renderer) {
-          return true;
-      }
-  };
+  // var doc = new jsPDF();
+  // var specialElementHandlers = {
+  //     '#editor': function (element, renderer) {
+  //         return true;
+  //     }
+  // };
   // $('#print').click(function () {
   //     doc.fromHTML($('#print_div').html(), 15, 15, {
   //         'width': 170,
@@ -163,14 +164,26 @@ $('document').ready(() => {
   //     });
   //     doc.save('sample-file.pdf');
   // });
+  function getUsername(){
+    $.ajax({
+      type:"GET",
+      url: "/getusername",
+      datatype: "text",
+      success: (data) => {
+        printDiv(data);
+      }
+    })
+  }
 
-  function printDiv(){
+  function printDiv(username){
     var printText=document.getElementById('print_div').innerHTML;
     var newWin=window.open('','Print-Window');
     // newWin.document.open();
     newWin.document.write('<html><head><title>Cool</title>');
+    newWin.document.write(`<style>@font-face {font-family: 'neil';src: URL('${username}.ttf');}</style>`)
     newWin.document.write('<link rel="stylesheet" href="../static/styles.css" type="text/css" />');
-    newWin.document.write(`</head><body onload="window.print()"><div class="font">${printText}</div></body></html>`);
+    newWin.document.write(`</head><body><div class="font">${printText}</div></body></html>`);
+    newWin.document.write('<script>setTimeout(function(){window.print();},5000)</script>');
     // newWin.document.write();
     // newWin.document.write('');
     newWin.document.close();
