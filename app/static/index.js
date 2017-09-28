@@ -104,15 +104,62 @@ $('document').ready(() => {
 
   $('#print').click(function() {
       printDiv();
+      // var contents = $("#printDiv").html();
+      //   var frame1 = $('<iframe />');
+      //   frame1[0].name = "frame1";
+      //   frame1.css({ "position": "absolute", "top": "-1000000px" });
+      //   $("body").append(frame1);
+      //   var frameDoc = frame1[0].contentWindow ? frame1[0].contentWindow : frame1[0].contentDocument.document ? frame1[0].contentDocument.document : frame1[0].contentDocument;
+      //   frameDoc.document.open();
+      //   //Create a new HTML document.
+      //   frameDoc.document.write('<html><head><title>DIV Contents</title>');
+      //   frameDoc.document.write('</head><body>');
+      //   //Append the external CSS file.
+      //   frameDoc.document.write('<link href="../static/styles.css" rel="stylesheet" type="text/css" />');
+      //   //Append the DIV contents.
+      //   frameDoc.document.write(contents);
+      //   frameDoc.document.write('</body></html>');
+      //   frameDoc.document.close();
+      //   setTimeout(function () {
+      //       window.frames["frame1"].focus();
+      //       window.frames["frame1"].print();
+      //       frame1.remove();
+      //   }, 500);
   });
 
+  $('#fontify').click(function() {
+      $("#print_div").attr('class', 'field font');
+  });
+
+  var doc = new jsPDF();
+  var specialElementHandlers = {
+      '#editor': function (element, renderer) {
+          return true;
+      }
+  };
+  // $('#print').click(function () {
+  //     doc.fromHTML($('#print_div').html(), 15, 15, {
+  //         'width': 170,
+  //             'elementHandlers': specialElementHandlers
+  //     });
+  //     doc.save('sample-file.pdf');
+  // });
+
   function printDiv(){
-    var divToPrint=document.getElementById('print_div');
+    var printText=document.getElementById('print_div').innerHTML;
     var newWin=window.open('','Print-Window');
-    newWin.document.open();
-    newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
+    // newWin.document.open();
+    newWin.document.write('<html><head><title>Cool</title>');
+    newWin.document.write('<link rel="stylesheet" href="../static/styles.css" type="text/css" />');
+    newWin.document.write(`</head><body onload="window.print()"><div class="font">${printText}</div></body></html>`);
+    // newWin.document.write();
+    // newWin.document.write('');
     newWin.document.close();
-    setTimeout(function(){newWin.close();},10);
+    // newWin.focus();
+    // setTimeout(function(){
+    //   window.print();
+    // },5000);
+    // newWin.close();
   }
 
   $("#down_button").click(function() {
