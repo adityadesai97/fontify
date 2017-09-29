@@ -73,6 +73,14 @@ def index3():
 def index4():
     return render_template('signup.html')
 
+@app.route('/about')
+def aboutus():
+    return render_template('about.html')
+
+@app.route('/journey')
+def ourjourney():
+    return render_template('journey.html')
+
 @app.route('/check', methods=['POST'])
 def do_admin_login():
     global POST_USERNAME
@@ -109,7 +117,7 @@ def logout():
 @app.route('/font', methods=['GET'])
 def get_font():
     dirpath = os.path.join(app.root_path, 'users')
-    filename = '{0}.ttf'.format(POST_USERNAME)
+    filename = 'user.ttf'
     return send_from_directory(directory=dirpath, filename=filename)
 
 

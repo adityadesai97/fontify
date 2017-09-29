@@ -29,6 +29,10 @@ $('document').ready(() => {
     }
   });
 
+  $('#template_link').click((e) => {
+    $('#editor').css('opacity', '1')
+  })
+
   $('#tp_button').click((e) => {
     if($('#scroll_to_top_button').css('opacity') == 0) {
       $('#scroll_to_top_button').css('opacity', '1')
@@ -147,17 +151,18 @@ $('document').ready(() => {
   });
 
   function getUsername(){
-    $.ajax({
-      type:"GET",
-      url: "/getusername",
-      datatype: "text",
-      success: (data) => {
-        printDiv(data);
-      }
-    })
+    // $.ajax({
+    //   type:"GET",
+    //   url: "/getusername",
+    //   datatype: "text",
+    //   success: (data) => {
+    //     printDiv(data);
+    //   }
+    // })
+    printDiv()
   }
 
-  function printDiv(username) {
+  function printDiv() {
     var printText=document.getElementById('print_div').innerHTML;
     var newWin=window.open('','Print-Window');
     newWin.document.write('<html><head><title>Cool</title>');
@@ -180,6 +185,14 @@ $('document').ready(() => {
 
   $("#signup").click(function() {
     window.open('/signup', '_self');
+  });
+
+  $("#aboutus").click(function() {
+    window.open('/about', '_self');
+  });
+
+  $("#journey").click(function() {
+    window.open('/journey', '_self');
   });
 
   $('#helper_button').mouseenter((e) => {

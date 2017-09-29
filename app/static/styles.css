@@ -15,6 +15,11 @@
   text-align: center;
 }
 
+.cards{
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .steps {
   width: 500px;
   margin: 100px auto 0 auto;
