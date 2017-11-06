@@ -45,10 +45,10 @@ def split(image, save_dir):
             filepath = os.path.join(save_dir, name)
             cv2.imwrite(filepath, roi)
 
-def font_generate(filename, dirpath):
+def font_generate(username, dirpath):
     font = ff.font()
-    font.fontname = "User"
-    font.familyname = "UserFont1"
+    font.fontname = "{0}Fontify".format(username)
+    font.familyname = "{0}".format(username)
 
     for i in xrange(96):
         image_name = str(i + 32) + '.png'
@@ -62,6 +62,8 @@ def font_generate(filename, dirpath):
         if i != 0:
             font.autoWidth(10)
         # font.autoKern()
+
+    filename = '{0}.ttf'.format(username)
 
     filepath = os.path.join(dirpath, filename)
     font.generate(filepath)
